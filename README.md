@@ -23,8 +23,9 @@ Terraform
 Open the `main.tf` to see the building blocks that Terraform will set up:
 
 1. The Autoscaling Group initially consists of 3 servers. The instance type can be configured in the `variables.tf` as `instance_type`.
-2. The Launch Configuration feeds the `userdata.sh` and SSH Key to the instances. An Elastic LoadBalancer sits in front of the cluster to handle SSL termination for the MQTT port 8883.
-3. Two Security Groups are created. One for the ELB that only allows port 8883. Another one for the cluster instances that allows traffic from the ELB and SSH/RabbitMQ Management access from a manually defined IP range.
+2. The Launch Configuration feeds the `userdata.sh` and SSH Key to the instances.
+3. An Elastic LoadBalancer sits in front of the cluster to handle SSL termination for the MQTT port 8883.
+4. Two Security Groups are created. One for the ELB that only allows port 8883. Another one for the cluster instances that allows traffic from the ELB and SSH/RabbitMQ Management access from a manually defined IP range.
 
 Once you filled in all necessary variables in the `variables.tf` you are ready to run Terraform to launch the Autoscaling Group.
 
